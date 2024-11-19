@@ -9,7 +9,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from text_model.text_model1 import predict
 from image_models.Brain_Stroke_CNN.predict import CNN_Model
-from image_models.brain_tumor_model.brain_tumor_flask import runner # show_predicted_segmentations
+# from image_models.brain_tumor_model.brain_tumor_flask import runner # show_predicted_segmentations
 # from image_models.brain_tumor_model.brain_tumor_flask import showPredictsById
 from text_model.text_model2 import runner3
 
@@ -90,32 +90,32 @@ def BrainStrokeImageResult():
     print(f"This is the {prediction}")
     return jsonify({"prediction": prediction})
 
-# Form file foe BrainTumor
-@app.route('/BrainTumorForm')
-def BrainTumorForm():
-    return render_template('/BrainTumorForm.html')
+# # Form file foe BrainTumor
+# @app.route('/BrainTumorForm')
+# def BrainTumorForm():
+#     return render_template('/BrainTumorForm.html')
 
-@app.route('/BrainTumorUpload', methods=['POST'])
-def upload():
-    if 'image' not in request.files:
-        return jsonify({"error": "No images uploaded."}), 400
+# @app.route('/BrainTumorUpload', methods=['POST'])
+# def upload():
+#     if 'image' not in request.files:
+#         return jsonify({"error": "No images uploaded."}), 400
 
-    image_files = request.files.getlist('image')  # Get the list of uploaded files
-    uploaded_images = []
+#     image_files = request.files.getlist('image')  # Get the list of uploaded files
+#     uploaded_images = []
 
-    upload_folder = 'upload'
-    os.makedirs(upload_folder, exist_ok=True)  # Create folder if it doesn't exist
+#     upload_folder = 'upload'
+#     os.makedirs(upload_folder, exist_ok=True)  # Create folder if it doesn't exist
 
-    for image_file in image_files:
-        image_path = os.path.join(upload_folder, image_file.filename)
-        image_file.save(image_path)
-        uploaded_images.append(image_path)  # Store the path of the uploaded image
+#     for image_file in image_files:
+#         image_path = os.path.join(upload_folder, image_file.filename)
+#         image_file.save(image_path)
+#         uploaded_images.append(image_path)  # Store the path of the uploaded image
 
-    runner(uploaded_images[0],uploaded_images[1],uploaded_images[2])
+#     runner(uploaded_images[0],uploaded_images[1],uploaded_images[2])
 
-    im = ['upload/plots_bw.png','upload/plots_color.png']
+#     im = ['upload/plots_bw.png','upload/plots_color.png']
 
-    return jsonify({"images": im})  # Return the relative paths
+#     return jsonify({"images": im})  # Return the relative paths
 
 
 if __name__ == '__main__':

@@ -28,7 +28,7 @@ document.getElementById('health-form').addEventListener('submit', function(event
         // Check if prediction is 1 and show the upload button
         if (data.prediction == "Person is at risk of Brain Stroke") {
             const uploadButton = document.createElement('a');
-            uploadButton.href = "/BrainStrokeImageForm"; // Update to your actual upload page
+            // uploadButton.href = "/BrainStrokeImageForm"; // Update to your actual upload page
             uploadButton.innerHTML = '<button class="button">Upload CT Scan</button>';
             resultDiv.appendChild(uploadButton);
         }
