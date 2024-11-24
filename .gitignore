@@ -5,7 +5,7 @@ __pycache__/
 *.pyd
 
 # Ignore virtual environment directories
-venv/
+.venv
 .env/
 
 # Ignore Jupyter notebook checkpoints
@@ -24,3 +24,7 @@ Thumbs.db   # Windows
 
 # Ignore any other custom temporary files
 *.tmp
+
+strokesense/node_modules
+strokesense/package-lock.json
+models/image_models
