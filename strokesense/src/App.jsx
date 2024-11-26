@@ -6,7 +6,8 @@ import { BrainParticles } from './brain-particles'; // Removed '.tsx' extension
 import { data } from './data';
 import IntroSection from './components/mainPage'; // Removed '.tsx' extension
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import FormPage from './components/formpage'; // Removed '.tsx' extension
+import FormPage from './components/formpage';
+import ImageForm from './components/imageFormPage';
 
 // Function to create curves from the data
 function createBrainCurvesFromPaths() {
@@ -69,8 +70,9 @@ const App = () => {
 
         {/* Routes for different pages */}
         <Routes>
-          <Route path="/" element={<IntroSection />} /> {/* Home Page */}
-          <Route path="/form" element={<FormPage />} /> {/* Form Page */}
+          <Route path="/" element={<IntroSection />} />
+          <Route path="/form" element={<FormPage />} />
+          <Route path="/Imageform" element={<ImageForm />} />
         </Routes>
       </div>
     </Router>

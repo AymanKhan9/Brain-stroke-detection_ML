@@ -2,8 +2,8 @@ import joblib
 import numpy as np
 
 # Load the model and scaler
-model = joblib.load('text_model/random_forest_model.pkl')
-scaler = joblib.load('text_model/scaler.pkl')
+model = joblib.load('models/text_model/random_forest_model.pkl')
+scaler = joblib.load('models/text_model/scaler.pkl')
 
 def predict(data):
     # Preprocess data

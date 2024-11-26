@@ -119,16 +119,29 @@ const IntroSection = () => {
       </div>
 
       {/* New Info Box: "Take test for brain stroke prediction" */}
-      <div className="intro">
-        <h3>Take a Test for Brain Stroke Prediction</h3>
-        <p>
-		Did you know that early detection of stroke can reduce the severity of its effects? Take the test now to understand your risk.
-          <br />
-          <Link to="/form" style={{ color: '#007BFF' }}>
-            Click here to take the test
-          </Link>
-        </p>
-      </div>
+      <div className="info-boxes">
+  <div className="info-box">
+    <h3>Determine Your Stroke Risk</h3>
+    <p>
+      Did you know that early detection of stroke can significantly reduce the severity of its effects? 
+      Take the test now to understand your risk.
+    </p>
+    <Link to="/form" style={{ color: '#007BFF' }}>
+      Click here to take the test
+    </Link>
+  </div>
+  
+  <div className="info-box">
+    <h3>Have a CT Scan?</h3>
+    <p>
+      If you have already undergone a CT scan, you can upload your results for a more accurate assessment of your stroke type.
+    </p>
+    <Link to="/Imageform" style={{ color: '#007BFF' }}>
+      Upload your CT scan results
+    </Link>
+  </div>
+</div>
+
     </div>
   );
 };
