@@ -28,3 +28,4 @@ Thumbs.db   # Windows
 strokesense/node_modules
 strokesense/package-lock.json
 upload
+build

@@ -357,7 +357,7 @@ const FormPage = () => {
           <p>{prediction}</p>
           {
             prediction === 'Person is at risk of Brain Stroke' ?
-            <button type="submit" className="form-button">
+            <button type="submit" className="form-button" onClick={() => window.location.href = '/Imageform'}>
             Upload CT-Scan
           </button>
           : <></>

@@ -7,7 +7,8 @@ from flask_cors import CORS
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from image_models.Brain_Stroke_CNN.predict import CNN_Model
-from text_model.text_model2 import MLP_Model as text_predict
+# from text_model.text_model2 import MLP_Model as text_predict
+from text_model.model import predict
 
 
 app = Flask(__name__)
@@ -39,7 +40,7 @@ def BrainStrokePredict():
         smoking_status = int(data.get('smoking_status'))
 
         # Prepare the data for prediction
-        prediction = text_predict([gender, age, hypertension, heart_disease, ever_married, 
+        prediction = predict([gender, age, hypertension, heart_disease, ever_married, 
                                    work_type, residence_type,avg_glucose_level, bmi, smoking_status])
 
         # Return the result based on the prediction
@@ -73,4 +74,4 @@ def BrainStrokeImageResult():
     return jsonify({"prediction": prediction})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)

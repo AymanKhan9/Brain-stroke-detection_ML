@@ -3,7 +3,7 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 import joblib
 
-def MLP_Model(data):
+def MLP_Model(data) -> int:
 
     # Load the saved model
     model = tf.keras.models.load_model('models/text_model/best_stroke_mlp_model.h5')
@@ -29,7 +29,7 @@ def MLP_Model(data):
 
     return int(predicted_class)
 
-def RF_Model(data):
+def RF_Model(data) -> int:
     model = joblib.load('models/text_model/random_forest_model.pkl')
     scaler = joblib.load('models/text_model/scaler.pkl')
     
