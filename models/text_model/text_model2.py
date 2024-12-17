@@ -3,13 +3,13 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 import joblib
 
-def runner3(data):
+def MLP_Model(data):
 
     # Load the saved model
-    model = tf.keras.models.load_model('text_model/best_stroke_mlp_model.h5')
+    model = tf.keras.models.load_model('models/text_model/best_stroke_mlp_model.h5')
 
     # Load the scaler if it was saved separately
-    scaler = joblib.load('text_model/scaler2.pkl')
+    scaler = joblib.load('models/text_model/scaler2.pkl')
     model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])  # Update as necessary
 
 
@@ -28,3 +28,14 @@ def runner3(data):
     print(f"Predicted Class: {predicted_class}")
 
     return int(predicted_class)
+
+def RF_Model(data):
+    model = joblib.load('models/text_model/random_forest_model.pkl')
+    scaler = joblib.load('models/text_model/scaler.pkl')
+    
+    # Preprocess data
+    scaled_data = scaler.transform(np.array(data).reshape(1, -1))
+    
+    # Make prediction
+    prediction = model.predict(scaled_data)
+    return prediction
